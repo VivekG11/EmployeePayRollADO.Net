@@ -6,7 +6,10 @@ namespace EmployeePayRollADO.Net
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Employee Employee payroll Services....");
+            Console.WriteLine("Welcome to Employee Employee payroll Services...");
+            EmployeeRepo repo = new EmployeeRepo();
+
+            repo.GetEmployeData();
         }
     }
 }
