@@ -31,6 +31,7 @@ namespace EmployeePayRollADO.Net
 
                 if(reader.HasRows)
                 {
+                    Console.WriteLine("Contacts in database are :");
                     while(reader.Read())
                     {
                         data.id = reader.GetInt32(0);
