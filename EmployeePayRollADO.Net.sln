@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeePayRollADO.Net", "EmployeePayRollADO.Net\EmployeePayRollADO.Net.csproj", "{2A9A90F8-20A2-464C-A05B-38A3184CC159}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeePayRollADO.Net", "EmployeePayRollADO.Net\EmployeePayRollADO.Net.csproj", "{2A9A90F8-20A2-464C-A05B-38A3184CC159}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{4A49B70B-F6C0-490C-BE06-ED32AC70738B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2A9A90F8-20A2-464C-A05B-38A3184CC159}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A9A90F8-20A2-464C-A05B-38A3184CC159}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A9A90F8-20A2-464C-A05B-38A3184CC159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A49B70B-F6C0-490C-BE06-ED32AC70738B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A49B70B-F6C0-490C-BE06-ED32AC70738B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A49B70B-F6C0-490C-BE06-ED32AC70738B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A49B70B-F6C0-490C-BE06-ED32AC70738B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

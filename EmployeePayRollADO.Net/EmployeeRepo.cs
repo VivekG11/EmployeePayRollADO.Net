@@ -86,6 +86,29 @@ namespace EmployeePayRollADO.Net
                 this.sqlConnection.Close();
             }
         }
+        public void UpdateBasePay()
+        {
+            EmployeeData data = new EmployeeData();
+            using (this.sqlConnection)
+            {
+                SqlCommand command = new SqlCommand("UpdateBasePay", this.sqlConnection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@id", data.id);
+               // command.Parameters.AddWithValue("@name ", data.name);
+                command.Parameters.AddWithValue("@salary", data.salary);
+                this.sqlConnection.Open();
+                int res = command.ExecuteNonQuery();
+                if (res == 0)
+                {
+                    Console.WriteLine("Query NOt executed...");
+                }
+                else
+                {
+                    Console.WriteLine("Query executed successfully...");
+                }
+                this.sqlConnection.Close();
+            }
+        }
 
     }
 }
