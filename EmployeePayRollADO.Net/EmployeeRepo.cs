@@ -63,5 +63,29 @@ namespace EmployeePayRollADO.Net
             }
         }
 
+        public void UpdateSalary()
+        {
+            using(this.sqlConnection)
+            {
+                //Updating salary of an employee using Sql Query 
+                string query = @"update Employe_Payroll set salary = 30000 where id = 6";
+
+                SqlCommand command = new SqlCommand(query,this.sqlConnection);
+
+                this.sqlConnection.Open();
+
+                int result = command.ExecuteNonQuery();
+                if(result == 0)
+                {
+                    Console.WriteLine("Query Not Executed..");
+                }
+                else
+                {
+                    Console.WriteLine("Query Executed successfully...");
+                }
+                this.sqlConnection.Close();
+            }
+        }
+
     }
 }

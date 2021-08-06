@@ -9,6 +9,8 @@ namespace EmployeePayRollADO.Net
             Console.WriteLine("Welcome to Employee Employee payroll Services...");
             EmployeeRepo repo = new EmployeeRepo();
 
+           
+            //repo.UpdateSalary();
             repo.GetEmployeData();
         }
     }
