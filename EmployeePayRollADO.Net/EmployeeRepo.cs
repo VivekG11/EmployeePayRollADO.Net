@@ -152,6 +152,35 @@ namespace EmployeePayRollADO.Net
                 }
             }
         }
+        public void AggregateFunctions()
+        {
+            using(this.sqlConnection)
+            {
+                //Query for retrieving agregate functions..
+                string query = @"select sum(BasicPay) as Totalsalary, avg(BasicPay) as Average, min(BasicPay) as MinimumSalary,max(BasicPay) as MaximumSalary,Count(*) as Count from Employe_Payroll group by gender";
+                SqlCommand command = new SqlCommand(query, this.sqlConnection);
+
+                this.sqlConnection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if(reader.HasRows)
+                {
+                    while(reader.Read())
+                    {
+                        Console.WriteLine("Total salary of records is :"+reader[0]);
+                        Console.WriteLine("Average salary of records is :" + reader[1]);
+                        Console.WriteLine("Minimjm salary among records is :" + reader[2]);
+                        Console.WriteLine("Maximum salary among records is :" + reader[3]);
+                        Console.WriteLine("Total number  of records are :" + reader[4]);
+
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No records exists in database under the given condition ....");
+                }
+                this.sqlConnection.Close();
+            }
+        }
 
     }
 }
