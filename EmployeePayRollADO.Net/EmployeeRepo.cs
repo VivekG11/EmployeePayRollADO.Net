@@ -110,5 +110,48 @@ namespace EmployeePayRollADO.Net
             }
         }
 
+        public  void RetrieveBasedOnDate()
+        {
+            EmployeeData data = new EmployeeData();
+            using (this.sqlConnection)
+            {
+                //Query to retrieve data from table
+                string query = @"select * from Employe_Payroll  where startDate between cast('2018-01-01' as date) and  getdate()";
+                SqlCommand command = new SqlCommand(query, this.sqlConnection);
+                this.sqlConnection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    Console.WriteLine("Contacts in database are :");
+                    while (reader.Read())
+                    {
+                        //using employeeDadta class to print records under given condition
+                        data.id = reader.GetInt32(0);
+                        data.name = reader.GetString(1);
+                        data.salary = reader.GetDouble(2);
+                        data.startDate = reader.GetDateTime(3);
+                        data.gender = reader.GetString(4);
+                        data.Phone = reader.GetInt64(5);
+                        data.Address = reader.GetString(6);
+                        data.Departmenr = reader.GetString(7);
+                        data.Basicpay = reader.GetInt64(8);
+                        data.Deductions = reader.GetInt32(9);
+                        data.TaxablePay = reader.GetInt32(10);
+                        data.IncomeTax = reader.GetInt32(11);
+                        data.Netpay = reader.GetInt64(12);
+                        //data.gender,data.Phone,data.Address,data.Departmenr,data.Basicpay,data.Deductions,data.TaxablePay,data.IncomeTax,data.Netpay);
+                        Console.WriteLine("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12}", data.id, data.name, data.salary, data.startDate, data.gender, data.Phone, data.Address, data.Departmenr, data.Basicpay, data.Deductions, data.TaxablePay, data.IncomeTax, data.Netpay);
+                        Console.WriteLine("\n");
+
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No records exists under given Condition....");
+                }
+            }
+        }
+
     }
 }

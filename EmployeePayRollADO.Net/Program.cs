@@ -8,8 +8,8 @@ namespace EmployeePayRollADO.Net
         {
             Console.WriteLine("Welcome to Employee Employee payroll Services...");
             EmployeeRepo repo = new EmployeeRepo();
-
-            repo.UpdateBasePay();
+            repo.RetrieveBasedOnDate();
+            //repo.UpdateBasePay();
            // repo.UpdateSalary();
            // repo.GetEmployeData();
         }
