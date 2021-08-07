@@ -19,7 +19,10 @@ namespace EmployeePayRollADO.Net
         public double TaxablePay { get; set; }
         public double IncomeTax { get; set; }
         public double Netpay { get; set; }
-       
+        public int ComapnyId { get; set; }
+        public string CompanyName { get; set; }
+
+        public int count { get; set; }
 
 
     }
