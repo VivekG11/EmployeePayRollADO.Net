@@ -18,7 +18,8 @@ namespace EmployeePayRollADO.Net
             //er.RecordsConuntBasedOnGender();
             // er.AggregateFunctions();
             Transactions transactions = new Transactions();
-            transactions.AddRecord();
+            // transactions.AddRecord();
+            transactions.DeleteRecord();
             
         }
         public void PrintDetails()

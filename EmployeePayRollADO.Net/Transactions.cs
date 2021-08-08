@@ -48,5 +48,40 @@ namespace EmployeePayRollADO.Net
                 this.connection.Close();
             }
         }
+
+        public void DeleteRecord()
+        {
+            using(this.connection)
+            {
+                //initializing is_active to true
+                bool is_active = true;
+                //query to delete a record from Employe Table
+                string query = @"delete from Employee where EmployeId = 23";
+                
+                SqlCommand command = new SqlCommand(query, this.connection);
+                //opening connection
+                this.connection.Open();
+
+                SqlTransaction transaction = connection.BeginTransaction();
+                command.Transaction = transaction;
+
+                int res = command.ExecuteNonQuery();
+                transaction.Commit();
+                //if transaction commits is_active returns to false
+                    is_active = false;
+                if (is_active == false)
+                {
+                    Console.WriteLine("Transaction committed successfully..");
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.WriteLine("Transaction Failed...");
+                }
+                //closing connection
+                this.connection.Close();
+                
+            }
+        }
     }
 }
