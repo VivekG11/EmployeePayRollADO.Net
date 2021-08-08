@@ -16,7 +16,9 @@ namespace EmployeePayRollADO.Net
             ERRepo er = new ERRepo();
             //  er.RetrieveRecordsOverAperiod();
             //er.RecordsConuntBasedOnGender();
-            er.AggregateFunctions();
+            // er.AggregateFunctions();
+            Transactions transactions = new Transactions();
+            transactions.AddRecord();
             
         }
         public void PrintDetails()
