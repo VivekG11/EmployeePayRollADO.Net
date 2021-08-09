@@ -14,7 +14,8 @@ namespace EmployeePayRollADO.Net
             // repo.UpdateSalary();
             // repo.GetEmployeData();
             ERRepo er = new ERRepo();
-            er.RetrieveWihtoutThread();
+          //  er.RetrieveWihtoutThread();
+            er.RetrieveUsingThread();
             //  er.RetrieveRecordsOverAperiod();
             //er.RecordsConuntBasedOnGender();
             // er.AggregateFunctions();

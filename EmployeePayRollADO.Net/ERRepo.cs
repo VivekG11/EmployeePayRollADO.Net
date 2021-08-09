@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace EmployeePayRollADO.Net
@@ -19,6 +20,7 @@ namespace EmployeePayRollADO.Net
         EmployeeData data = new EmployeeData();
         public  void RetrieveDetails()
         {
+            List<EmployeeData> EmpList = new List<EmployeeData>();
            // EmployeeData data = new EmployeeData();
             using(this.connection)
             {
@@ -51,10 +53,13 @@ namespace EmployeePayRollADO.Net
                         data.IncomeTax = reader.GetInt32(11);
                         data.Netpay = reader.GetInt64(12);
                         data.Departmenr = reader.GetString(13);
-                        
-                        
-                        Console.WriteLine("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}", data.ComapnyId, data.CompanyName, data.id, data.name, data.Address, data.Phone, data.startDate, data.gender, data.Basicpay, data.Deductions, data.TaxablePay, data.IncomeTax, data.Netpay,data.Departmenr);
-                        Console.WriteLine("\n");
+                        Thread task = new Thread(() =>
+                        {
+                          //  EmpList.Add(data);
+                            Console.WriteLine("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}", data.ComapnyId, data.CompanyName, data.id, data.name, data.Address, data.Phone, data.startDate, data.gender, data.Basicpay, data.Deductions, data.TaxablePay, data.IncomeTax, data.Netpay, data.Departmenr);
+                            Console.WriteLine("\n");
+                        });
+                        task.Start();
                     }
                 }
                 else
@@ -75,6 +80,18 @@ namespace EmployeePayRollADO.Net
             stopwatch.Stop();
             //Printing time taken to retrieve details
             Console.WriteLine("Time taken to retrieve data is :"+stopwatch.ElapsedMilliseconds+" ms");
+        }
+
+        public void RetrieveUsingThread()
+        {
+            //creating object for stopwatch method
+            Stopwatch stopwatch = new Stopwatch();
+            //start and stop the stopwatch to get the elapsed time
+            stopwatch.Start();
+            RetrieveDetails();
+            stopwatch.Stop();
+            //Printing time taken to retrieve details
+            Console.WriteLine("Time taken to retrieve data is :" + stopwatch.ElapsedMilliseconds + " ms");
         }
 
         public void RetrieveRecordsOverAperiod()
