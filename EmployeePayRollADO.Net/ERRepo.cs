@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace EmployeePayRollADO.Net
@@ -62,6 +63,18 @@ namespace EmployeePayRollADO.Net
                 }
                 this.connection.Close();
             }
+        }
+
+        public void RetrieveWihtoutThread()
+        {
+            //creating object for stopwatch method
+            Stopwatch stopwatch = new Stopwatch();
+            //start and stop the stopwatch to get the elapsed time
+            stopwatch.Start();
+            RetrieveDetails();
+            stopwatch.Stop();
+            //Printing time taken to retrieve details
+            Console.WriteLine("Time taken to retrieve data is :"+stopwatch.ElapsedMilliseconds+" ms");
         }
 
         public void RetrieveRecordsOverAperiod()

@@ -14,12 +14,13 @@ namespace EmployeePayRollADO.Net
             // repo.UpdateSalary();
             // repo.GetEmployeData();
             ERRepo er = new ERRepo();
+            er.RetrieveWihtoutThread();
             //  er.RetrieveRecordsOverAperiod();
             //er.RecordsConuntBasedOnGender();
             // er.AggregateFunctions();
             Transactions transactions = new Transactions();
             // transactions.AddRecord();
-            transactions.DeleteRecord();
+          //  transactions.DeleteRecord();
             
         }
         public void PrintDetails()
