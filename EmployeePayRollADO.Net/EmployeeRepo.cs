@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EmployeePayRollADO.Net
 {
-    class EmployeeRepo
+   public  class EmployeeRepo
     {
         //Establishing connection
         public static string connectionString = @"Server = (localdb)\MSSQLLocalDB; Initial Catalog = payroll_serivce;";
@@ -63,8 +63,9 @@ namespace EmployeePayRollADO.Net
             }
         }
 
-        public void UpdateSalary()
+        public int UpdateSalary()
         {
+            int c = 0;
             using(this.sqlConnection)
             {
                 //Updating salary of an employee using Sql Query 
@@ -82,7 +83,10 @@ namespace EmployeePayRollADO.Net
                 else
                 {
                     Console.WriteLine("Query Executed successfully...");
+                    c = 1;
+                    return c;
                 }
+                return c;
                 this.sqlConnection.Close();
             }
         }
@@ -110,8 +114,9 @@ namespace EmployeePayRollADO.Net
             }
         }
 
-        public  void RetrieveBasedOnDate()
+        public  int RetrieveBasedOnDate()
         {
+            int c = 0;
             EmployeeData data = new EmployeeData();
             using (this.sqlConnection)
             {
@@ -145,11 +150,13 @@ namespace EmployeePayRollADO.Net
                         Console.WriteLine("\n");
 
                     }
+                    c = 1;
                 }
                 else
                 {
                     Console.WriteLine("No records exists under given Condition....");
                 }
+                return c;
             }
         }
         public void AggregateFunctions()

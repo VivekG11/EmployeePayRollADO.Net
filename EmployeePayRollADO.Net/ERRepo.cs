@@ -20,7 +20,7 @@ namespace EmployeePayRollADO.Net
         EmployeeData data = new EmployeeData();
         public  void RetrieveDetails()
         {
-            List<EmployeeData> EmpList = new List<EmployeeData>();
+           
            // EmployeeData data = new EmployeeData();
             using(this.connection)
             {
@@ -55,7 +55,7 @@ namespace EmployeePayRollADO.Net
                         data.Departmenr = reader.GetString(13);
                         Thread task = new Thread(() =>
                         {
-                          //  EmpList.Add(data);
+                          
                             Console.WriteLine("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}", data.ComapnyId, data.CompanyName, data.id, data.name, data.Address, data.Phone, data.startDate, data.gender, data.Basicpay, data.Deductions, data.TaxablePay, data.IncomeTax, data.Netpay, data.Departmenr);
                             Console.WriteLine("\n");
                         });
